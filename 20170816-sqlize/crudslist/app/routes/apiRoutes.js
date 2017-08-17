@@ -31,7 +31,7 @@ module.exports = function(app, models) {
             name: req.body.name
 
         }, {
-            
+
             // Where clause
             where: {
                 id: req.body.id
@@ -45,12 +45,20 @@ module.exports = function(app, models) {
     });
 
     // Delete route (Delete)
-    app.delete('/api/delete', function() {
+    app.delete('/api/delete/:id', function(req, res) {
         models.Posts.destroy({
+
+            // Where clause
             where: {
 
+                // Uses params which is defined in the url (/:id)
+                // Eg. .../api/delete/1 for id 1
+                id: req.params.id
             }
+
         }).then(function(data) {
+
+            // Send data back to user
             res.json(data);
         });
     });
