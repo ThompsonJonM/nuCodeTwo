@@ -17,10 +17,9 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static('app/public'));
 
 // Routing
-require('./routes/...')(app);
+// require('./routes/...')(app);
 
-db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
-        console.log('Listening on ' + PORT);
-    });
+
+app.listen(PORT, function() {
+    console.log('Listening on ' + PORT);
 });
