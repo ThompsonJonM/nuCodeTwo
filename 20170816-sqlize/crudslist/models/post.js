@@ -4,7 +4,7 @@
 module.exports = function(sequelize, DataTypes) {
 
     //creating a table
-    var Post = sequelize.define('Posts', {
+    var Posts = sequelize.define('Posts', {
 
         // .STRING would be VARCHAR in sql
         name: DataTypes.STRING,
@@ -12,5 +12,5 @@ module.exports = function(sequelize, DataTypes) {
         category: DataTypes.STRING
     });
 
-    return Post;
+    return Posts;
 };
