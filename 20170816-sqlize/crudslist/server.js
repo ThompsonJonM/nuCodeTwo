@@ -7,7 +7,9 @@ var app = express();
 var PORT = 3000;
 
 // Require models from Sqlize
-var db = require('./models');
+var models = require('./models');
+
+var apiRoutes = require('./app/routes/apiRoutes.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,9 +19,10 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static('app/public'));
 
 // Routing
-// require('./routes/...')(app);
+apiRoutes(app, models);
 
-
-app.listen(PORT, function() {
-    console.log('Listening on ' + PORT);
+models.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log('Listening on ' + PORT);
+    })
 });
