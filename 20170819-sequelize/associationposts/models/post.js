@@ -14,7 +14,19 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  Post.associate = function(models) {
+    Post.belongsTo(models.Author, {
+
+      // Foreign Key is a link to another table
+      // Normally an ID
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   // Add a belongsTo association to Authors here
   // Example: https://github.com/sequelize/express-example/blob/master/models/task.js
+
   return Post;
 };
