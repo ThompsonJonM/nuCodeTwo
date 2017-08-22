@@ -1,0 +1,16 @@
+{
+  "name": "20170821-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "catchExample.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  }
+}
